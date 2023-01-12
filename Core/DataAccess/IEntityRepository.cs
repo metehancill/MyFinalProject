@@ -1,18 +1,20 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Linq.Expressions;
-using Entities.Abstract;
-using Entities.Concrete;
 
-namespace DataAccess.Abstract
+
+
+namespace Core.DataAccess //core evrensel katmandır. Core kimseye bağımlı değildir.
 {
     //generic constraint generic kısıtlaması
     //class: referans tip olabilir anlamına gelir.
-    //IENtitiy :Ientity olabilir veya Ientity implemnt eden bir nesne olabilir anlmına gelir.
-	public interface IEntityRepository<T> where T :class,IEntity,new()
+    //IEntitiy :Ientity olabilir veya Ientity implemnt eden bir nesne olabilir anlmına gelir.
+
+    public interface IEntityRepository<T> where T : class, IEntity, new()
 	{
         List<T> GetAll(Expression<Func<T,bool>> filter=null); //Predickets
         T Get(Expression<Func<T, bool>> filter);
-        void All(T entity);
+        void Add(T entity);
         void Update(T entity);
         void Delete(T entity);
         

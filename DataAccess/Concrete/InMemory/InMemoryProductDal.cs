@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace DataAccess.Concrete.InMemory
 {
@@ -49,6 +50,11 @@ namespace DataAccess.Concrete.InMemory
         public List<Product> GetAllByCategory(int categoryId)
         {
            return _products.Where(p => p.CategoryId == categoryId).ToList();//Yeni bir liste olarak getirir SQL where sorgusu ile aynı.
+        }
+
+        public List<ProductDetailDTO> GetProdcutDetails()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Product product)//Parametre ekrandan gelen datadır.
