@@ -20,6 +20,11 @@ namespace DataAccess.Concrete.InMemory
             };
         }
 
+        public void Add(Product entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public void All(Product product)
         {
             _products.Add(product);
